@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#c91f45">
+
+<title>A Thousand Little Reasons ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --red: #c91f45;
+  --dark: #8f1532;
+  --pink: #ffe8ed;
+  --white: #fff;
+  --ink: #542532;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: #fff7f8;
+  color: var(--ink);
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+  position: fixed;
+  color: #e9a1b1;
+  opacity: .35;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-25px) rotate(15deg); }
+}
+
+/* LOGIN */
+
+.screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 15% 15%, white 0 9%, transparent 34%),
+    linear-gradient(145deg,#ffdce4,#fff7f8,#f8c4d0);
+}
+
+.login-card {
+  width: min(100%,430px);
+  background: white;
+  border: 1px solid #f4c5cf;
+  border-radius: 25px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 22px 70px #9f244326;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card h1 {
+  font-family: 'Playfair Display',serif;
+  color: var(--dark);
+  font-size: 40px;
+}
+
+.login-card p {
+  color: #916575;
+  line-height: 1.7;
+}
+
+.secret {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e4a2b1;
+  border-radius: 12px;
+  text-align: center;
+  margin: 12px 0;
+  outline: none;
+  letter-spacing: 8px;
+  font-size: 20px;
+}
+
+.primary {
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 25px;
+  background: var(--red);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.primary:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+.error {
+  color: var(--red) !important;
+  font-size: 13px;
+}
+
+/* WEBSITE HEADER */
+
+#site {
+  display: none;
+}
+
+header {
+  background: linear-gradient(115deg,#bd1c42,#e34c6d);
+  color: white;
+  padding: 45px 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header h1 {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(35px,7vw,55px);
+  font-style: italic;
+  margin: 12px;
+}
+
+header p {
+  margin: 8px;
+}
+
+.topline {
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+/* NAVIGATION */
+
+nav {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 16px 10px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 1px solid #f4d5dc;
+}
+
+nav button {
+  border: 1px solid #f0c4ce;
+  background: #fff7f8;
+  color: #9d2442;
+  border-radius: 30px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+nav button.active {
+  background: var(--red);
+  color: white;
+}
+
+/* CONTENT */
+
+main {
+  max-width: 920px;
+  margin: auto;
+  padding: 35px 18px 60px;
+}
+
+.panel {
+  display: none;
+  animation: appear .4s ease;
+}
+
+.panel.active {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-head h2 {
+  color: var(--dark);
+  font-family: 'Playfair Display',serif;
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.section-head p {
+  color: #a06c7b;
+}
+
+.paper {
+  background: white;
+  border: 1px solid #f2d0d8;
+  border-radius: 20px;
+  padding: clamp(22px,5vw,42px);
+  line-height: 1.9;
+  box-shadow: 0 12px 35px #8f15320c;
+}
+
+.paper h3 {
+  color: var(--red);
+  font-family: 'Playfair Display',serif;
+  font-size: 28px;
+  font-style: italic;
+}
+
+.letter {
+  white-space: pre-line;
+  line-height: 2;
+  font-size: 15px;
+}
+
+/* MUSIC PLAYER */
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff7f8;
+  border: 1px solid #f2d0d8;
+  padding: 18px;
+  border-radius: 16px;
+  margin: 16px 0;
+}
+
+.disc {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffe0e8;
+  color: var(--red);
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.song-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.song-info strong {
+  color: var(--dark);
+  font-size: 15px;
+}
+
+.song-info p {
+  color: #a06c7b;
+  font-size: 13px;
+  margin: 4px 0 10px;
+}
+
+audio {
+  width: 100%;
+  height: 38px;
+  accent-color: var(--red);
+}
+
+/* GALLERY */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+  gap: 14px;
+}
+
+.photo {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  background: linear-gradient(145deg,#ffe0e7,#f5b8c6);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: #9e3652;
+  text-align: center;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* NOTES */
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px;
+  border: 1px solid #e9bdc8;
+  border-radius: 12px;
+  outline: none;
+  background: #fffafa;
+  color: var(--ink);
+  resize: vertical;
+}
+
+textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px #c91f4518;
+}
+
+.note {
+  background: #fff7f8;
+  border: 1px solid #f2d0d8;
+  padding: 16px;
+  border-radius: 14px;
+  margin: 12px 0;
+  white-space: pre-wrap;
+}
+
+.note small {
+  display: block;
+  color: #ad8290;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #f4d5dc;
+  margin: 15px 0;
+}
+
+.footer {
+  text-align: center;
+  color: #ad8290;
+  padding: 30px;
+  font-size: 13px;
+}
+
+@media(max-width:520px) {
+  header h1 {
+    font-size: 35px;
+  }
+
+  nav {
+    gap: 7px;
+  }
+
+  nav button {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .paper {
+    padding: 22px;
+  }
+
+  .song {
+    gap: 10px;
+    padding: 12px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- DECORATIVE HEARTS -->
+
+<div class="heart" style="top:15%;left:8%">♥</div>
+<div class="heart" style="top:35%;right:8%">♡</div>
+<div class="heart" style="top:75%;left:12%">♥</div>
+
+<!-- PASSWORD SCREEN -->
+
+<section class="screen" id="gate">
+
+<div class="login-card">
+
+<p>♥ A LITTLE SURPRISE FOR YOU ♥</p>
+
+<h1>Our Little World</h1>
+
+<p>
+Some things are meant for just us.
+Enter our secret code to come inside.
+</p>
+
+<form id="loginForm">
+
+<input
+class="secret"
+id="password"
+type="password"
+inputmode="numeric"
+maxlength="4"
+placeholder="••••"
+autocomplete="off"
+required
+>
+
+<br>
+
+<button class="primary" type="submit">
+Open My Heart ❤️
+</button>
+
+</form>
+
+<p class="error" id="loginMessage"></p>
+
+<p style="font-size:12px">
+Made with love, just for you.
+</p>
+
+</div>
+</section>
+
+<!-- MAIN WEBSITE -->
+
+<div id="site">
+
+<header>
+
+<div class="topline">
+A THOUSAND LITTLE REASONS
+</div>
+
+<h1>Welcome, my love.</h1>
+
+<p>
+Ryan & Uzukhanye ❤️
+</p>
+
+<p>
+A little world made especially for you.
+</p>
+
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<button class="active" data-tab="letter">
+♥ Love Letter
+</button>
+
+<button data-tab="music">
+♫ Our Music
+</button>
+
+<button data-tab="notes">
+✎ Love Notes
+</button>
+
+<button data-tab="gallery">
+♡ Memories
+</button>
+
+<button data-tab="wishes">
+✧ Our Wishes
+</button>
+
+<button data-tab="vent">
+☁ Safe Space
+</button>
+
+</nav>
+
+<main>
+
+<!-- LOVE LETTER -->
+
+<section class="panel active" id="letter">
+
+<div class="section-head">
+
+<h2>KuRyan, Sithandwa Sam ❤️</h2>
+
+<p>A letter from Uzukhanye, with love.</p>
+
+</div>
+
+<div class="paper">
+
+<h3>KuRyan, Sithandwa Sam,</h3>
+
+<div class="letter">
+
+Molo sithandwa sam, Ryan. ❤️
+
+Andazi nokuba ndingawaqala ngaphi amazwi am,
+kuba ngamanye amaxesha intliziyo iba nezinto
+ezininzi efuna ukuzithetha, kodwa amazwi asilele
+ukufikelela kubunzulu beemvakalelo zayo.
+
+Ndifuna wazi ukuba ndiyabuxabisa ubukho bakho
+ebomini bam. Ndiyabuxabisa ubukho bakho,
+indlela ondenza ndizive ngayo, kunye nethuba
+lokuba ndikwazi, ndikuthande, ndize ndibelane
+nawe ngamanye amaphepha obomi bam.
+
+Andithembisi ukuba yonke imihla iya kuba lula,
+okanye ukuba siya kuhlala sivumelana ngayo
+yonke into. Kodwa ndiyathembisa ukuba ndiya
+kuhlala ndizama ukukuqonda, ndikuphulaphule,
+ndikuxhase, kwaye ndikubonise ukuba ubalulekile
+kum.
+
+Andifuni ukuba uze uzive ngathi kufuneka
+ugqibelele ukuze uthandwe ndim. Ndifuna uzive
+ukhululekile ukuba nguwe, nokuba ngeentsuku
+zakho ezintle okanye ngezo ungaziva ungenguye.
+
+Ryan, ndiyathemba ukuba xa ukunye nam,
+uyakwazi ukufumana uxolo, intuthuzelo nolonwabo.
+Ndiyathemba ukuba uyakwazi ukubona ukuba kukho
+umntu okhetha wena, ongakujongi nje kuphela
+ngamehlo akhe, kodwa okuxabisa nangentliziyo yakhe.
+
+Ndifuna sibe neenkumbulo esiya kuhleka ngazo
+xa sikhumbula ixesha elidlulileyo. Ndifuna sibe
+namaxesha amancinci kodwa abalulekileyo,
+iincoko ezingapheliyo, ukuhleka ngaphandle
+kwesizathu, amaphupha esiwabelanayo, kunye
+namaxesha apho ubukho bomnye umntu bubanele.
+
+Andazi ukuba ikamva lisiphathele ntoni,
+kodwa ndiyazi ukuba ndingathanda ukulakha
+ndinothando, intlonipho, ukunyaniseka kunye nawe.
+
+Ndifuna sikhule kunye, sifunde omnye komnye,
+size singaze silibale ukuba uthando alukho
+kumazwi amnandi kuphela, koko lukwizenzo
+ezincinci esizenzayo mihla le.
+
+Ukuba bendinokukhetha into enye endifuna
+uhlale uyikhumbula, ibiya kuba yile:
+
+Awungomntu nje endimaziyo, Ryan.
+Ungumntu endivuyayo ukuba ukhona ebomini bam.
+
+Enkosi ngokuba nguwe.
+Enkosi ngokundivumela ndibe yinxalenye yebali lakho.
+
+Ndiyathemba ukuba le webhusayithi iza kuba
+sisikhumbuzo esincinci sokuba kukho umntu
+apha okucinga ngothando, okuxabisayo,
+kwaye onqwenela ukukubona wonwabile.
+
+Ndikuthanda ngentliziyo yam yonke, sithandwa sam.
+
+Ngothando olukhulu,
+
+Uzukhanye ❤️
+
+Owakho, ngothando.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section class="panel" id="music">
+
+<div class="section-head">
+
+<h2>I Hear You in Every Love Song</h2>
+
+<p>
+Every melody reminds me of a little piece of you. ❤️
+</p>
+
+</div>
+
+<div class="paper">
+
+<div class="song">
+
+<div class="disc">♫</div>
+
+<div class="song-info">
+
+<strong>Thanx 4 Nothin'</strong>
+
+<p>Mariah Carey</p>
+
+<audio controls preload="none">
+<source src="music/Thanx 4 Nothin'.mp3" type="audio/mpeg">
+Your browser does not support audio.
+</audio>
+
+</div>
+
+</div>
+
+<div class="song">
+
+<div class="disc">♫</div>
+
+<div class="song-info">
+
+<strong>Fall in Love with You</strong>
+
+<p>Montell Fish</p>
+
+<audio controls preload="none">
+<source src="music/Fall in Love with You.mp3" type="audio/mpeg">
+Your browser does not support audio.
+</audio>
+
+</div>
+
+</div>
+
+<p style="font-size:13px;color:#a06c7b">
+Two songs, two beautiful reminders of you.
+</p>
+
+</div>
+
+</section>
+
+<!-- LOVE NOTES -->
+
+<section class="panel" id="notes">
+
+<div class="section-head">
+
+<h2>Little Love Notes</h2>
+
+<p>Little reminders of how much you mean to me.</p>
+
+</div>
+
+<div class="paper">
+
+<textarea
+id="noteInput"
+placeholder="Write a little love note..."
+></textarea>
+
+<br><br>
+
+<button class="primary" onclick="addNote()">
+Save Note ❤️
+</button>
+
+<div id="noteList"></div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="panel" id="gallery">
+
+<div class="section-head">
+
+<h2>Our Little Memories</h2>
+
+<p>Every picture tells a story.</p>
+
+</div>
+
+<div class="grid">
+
+<div class="photo">
+<img src="images/photo1.jpg" alt="Our memory 1">
+</div>
+
+<div class="photo">
+<img src="images/photo2.jpg" alt="Our memory 2">
+</div>
+
+<div class="photo">
+<img src="images/photo3.jpg" alt="Our memory 3">
+</div>
+
+<div class="photo">
+<img src="images/photo4.jpg" alt="Our memory 4">
+</div>
+
+<div class="photo">
+<img src="images/photo5.jpg" alt="Our memory 5">
+</div>
+
+<div class="photo">
+<img src="images/photo6.jpg" alt="Our memory 6">
+</div>
+
+</div>
+
+</section>
+
+<!-- WISHES -->
+
+<section class="panel" id="wishes">
+
+<div class="section-head">
+
+<h2>Our Little Bucket List</h2>
+
+<p>Things I want us to experience together.</p>
+
+</div>
+
+<div class="paper">
+
+<label>
+<input type="checkbox">
+Have a beautiful sunset date together.
+</label>
+
+<hr>
+
+<label>
+<input type="checkbox">
+Take more pictures together.
+</label>
+
+<hr>
+
+<label>
+<input type="checkbox">
+Cook a meal together.
+</label>
+
+<hr>
+
+<label>
+<input type="checkbox">
+Travel somewhere beautiful.
+</label>
+
+<hr>
+
+<label>
+<input type="checkbox">
+Watch the stars together.
+</label>
+
+<hr>
+
+<label>
+<input type="checkbox">
+Make unforgettable memories.
+</label>
+
+<hr>
+
+<label>
+<input type="checkbox">
+Keep choosing each other.
+</label>
+
+</div>
+
+</section>
+
+<!-- SAFE SPACE -->
+
+<section class="panel" id="vent">
+
+<div class="section-head">
+
+<h2>Our Safe Space</h2>
+
+<p>A place to understand each other.</p>
+
+</div>
+
+<div class="paper">
+
+<h3>Remember, we are on the same team.</h3>
+
+<p>
+
+We can disagree and still be kind.
+
+We can be upset and still choose love.
+
+We can listen, communicate and understand
+each other without giving up on us.
+
+Our relationship is not about winning
+arguments. It is about understanding
+each other's hearts.
+
+Let us always remember to be gentle
+with each other.
+
+</p>
+
+<textarea
+id="ventInput"
+placeholder="Write what's on your heart..."
+></textarea>
+
+<br><br>
+
+<button class="primary" onclick="saveVent()">
+Save My Thoughts ❤️
+</button>
+
+<p id="ventMessage"></p>
+
+<p style="font-size:12px;color:#a06c7b">
+Your writing is saved locally in this browser.
+It is not a shared messaging service.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<div class="footer">
+
+A Thousand Little Reasons.
+
+Made with love by Uzukhanye, for Ryan. ❤️
+
+</div>
+
+</div>
+
+<script>
+
+/* =================================
+   SECRET PASSWORD
+   ONLY 9620 IS ACCEPTED
+================================= */
+
+const SECRET_CODE = "9620";
+
+document.getElementById("loginForm")
+.addEventListener("submit", function(e) {
+
+e.preventDefault();
+
+const entered =
+document.getElementById("password").value;
+
+if (entered === SECRET_CODE) {
+
+document.getElementById("gate").style.display = "none";
+
+document.getElementById("site").style.display = "block";
+
+window.scrollTo(0,0);
+
+} else {
+
+document.getElementById("loginMessage")
+.textContent = "Incorrect code. Try again, my love. ❤️";
+
+document.getElementById("password").value = "";
+
+}
+
+});
+
+/* =================================
+   NAVIGATION
+================================= */
+
+document.querySelectorAll("nav button")
+.forEach(button => {
+
+button.addEventListener("click", function() {
+
+document.querySelectorAll("nav button")
+.forEach(b => b.classList.remove("active"));
+
+document.querySelectorAll(".panel")
+.forEach(p => p.classList.remove("active"));
+
+this.classList.add("active");
+
+document.getElementById(this.dataset.tab)
+.classList.add("active");
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+});
+
+});
+
+/* =================================
+   MUSIC PLAYER
+   PLAY ONE SONG AT A TIME
+================================= */
+
+document.querySelectorAll("audio")
+.forEach(player => {
+
+player.addEventListener("play", function() {
+
+document.querySelectorAll("audio")
+.forEach(other => {
+
+if (other !== player) {
+other.pause();
+}
+
+});
+
+});
+
+});
+
+/* =================================
+   LOVE NOTES
+================================= */
+
+function addNote() {
+
+const input = document.getElementById("noteInput");
+
+const value = input.value.trim();
+
+if (!value) return;
+
+const notes = JSON.parse(
+localStorage.getItem("loveNotes") || "[]"
+);
+
+notes.unshift({
+text: value,
+date: new Date().toLocaleString()
+});
+
+localStorage.setItem(
+"loveNotes",
+JSON.stringify(notes)
+);
+
+input.value = "";
+
+showNotes();
+
+}
+
+function showNotes() {
+
+const notes = JSON.parse(
+localStorage.getItem("loveNotes") || "[]"
+);
+
+const list = document.getElementById("noteList");
+
+list.innerHTML = "";
+
+notes.forEach(note => {
+
+const item = document.createElement("div");
+
+item.className = "note";
+
+const message = document.createElement("div");
+message.textContent = note.text;
+
+const date = document.createElement("small");
+date.textContent = note.date;
+
+item.appendChild(message);
+item.appendChild(date);
+
+list.appendChild(item);
+
+});
+
+}
+
+showNotes();
+
+/* =================================
+   SAFE SPACE
+================================= */
+
+function saveVent() {
+
+const thoughts =
+document.getElementById("ventInput").value;
+
+localStorage.setItem(
+"safeSpace",
+thoughts
+);
+
+document.getElementById("ventMessage")
+.textContent = "Your thoughts have been saved. ❤️";
+
+}
+
+document.getElementById("ventInput").value =
+localStorage.getItem("safeSpace") || "";
+
+</script>
+
+</body>
+  </html>
+   
